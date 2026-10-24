@@ -1,5 +1,6 @@
 import './App.css';
 import { CabinList } from './components/CabinList';
+import { ContactForm } from './components/ContactForm';
 import { FylkeDisplay } from './components/FylkeDisplay';
 import { Greeting } from './components/Greeting';
 import { Section } from './components/layout/Section';
@@ -57,6 +58,7 @@ function App() {
           </main>
         </div>
       </ApiConfigProvider>
+      <ContactForm />
     </>
   );
 }
