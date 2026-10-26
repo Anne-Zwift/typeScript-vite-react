@@ -5,8 +5,29 @@ import { FylkeDisplay } from './components/FylkeDisplay';
 import { Greeting } from './components/Greeting';
 import { Section } from './components/layout/Section';
 import { ApiConfigProvider } from './context/ApiConfigProvider';
+import { DataCard } from './components/DataCard';
+import type { CarListing, JobListing } from './types/listings.ts';
+import { ListingStatusPill } from './components/ListingStatusPill.tsx';
+import { RandomGame } from './components/RandomGame.tsx';
 
 function App() {
+  {
+    /*mock Car object and a mock JobListing object*/
+  }
+  const mockCar: CarListing = {
+    id: 'c1',
+    brand: 'Tesla',
+    model: 'Model Y',
+    year: 2023,
+    price: 399000,
+  };
+  const mockJob: JobListing = {
+    id: 'j1',
+    title: 'Senior Frontend Developer',
+    company: 'Finn.no AS',
+    location: 'Oslo (Hybrid)',
+    salary: '850 000 - 1 000 000 kr',
+  };
   return (
     <>
       <Greeting name='Anne-Zwift' message='' />
@@ -59,6 +80,84 @@ function App() {
         </div>
       </ApiConfigProvider>
       <ContactForm />
+      <div style={{ padding: '24px', fontFamily: 'sans-serif' }}>
+        <h1>My Mock App for Finn.no</h1>
+
+        {/** Generic DataCard used for a Car */}
+        <h2>Car for sale</h2>
+        <DataCard
+          item={mockCar}
+          renderContent={(car) => (
+            <div>
+              <span
+                style={{
+                  fontSize: '0.85em',
+                  color: '#999',
+                  textTransform: 'uppercase',
+                }}>
+                Car for sale
+              </span>
+              <h3 style={{ margin: '4px 0' }}>
+                {car.brand} {car.model} ({car.year})
+              </h3>
+              <p style={{ margin: 0, fontWeight: 'bold', color: '#0066cc' }}>
+                Price: {car.price.toLocaleString('no-NO')} kr
+              </p>
+            </div>
+          )}
+        />
+        {/** Generic DataCard used for a Job */}
+        <h2>Available positions</h2>
+        <DataCard
+          item={mockJob}
+          renderContent={(job) => (
+            <div>
+              <span
+                style={{
+                  fontSize: '0.85em',
+                  color: '#999',
+                  textTransform: 'uppercase',
+                }}>
+                Positions
+              </span>
+              <h3 style={{ margin: '4px 0' }}>{job.title}</h3>
+              <p style={{ margin: '0 0 4px 0', color: '#333' }}>
+                {job.company} — <em>{job.location}</em>
+              </p>
+              <p style={{ margin: 0, fontSize: '0.9em', color: '#666' }}>
+                Salary: {job.salary} kr/year
+              </p>
+            </div>
+          )}
+        />
+      </div>
+      {/* Discriminated union component demonstrated with all three statuses */}
+      <h2>Ad status</h2>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          marginBottom: '24px',
+        }}>
+        <ListingStatusPill
+          status='ACTIVE'
+          lastRenewed='2024-06-01'
+          views={142}
+        />
+        <ListingStatusPill status='SOLD' soldDate='2024-05-20' price={385000} />
+        <ListingStatusPill status='EXPIRED' expiryDate='2024-04-15' />
+        {/* Random game fetched from Noroff API */}
+
+        <h2
+          style={{
+            gap: '8px',
+            margin: '24px',
+          }}>
+          Random Games
+        </h2>
+        <RandomGame />
+      </div>
     </>
   );
 }
