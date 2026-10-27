@@ -21,9 +21,9 @@ export function FylkeDisplay({
         style={{ width: '100%', borderRadius: '4px', marginBottom: '12px' }}
       />
       )}
-      <h2>{name}</h2>
-      <p><strong>Population:</strong>{population.toLocaleString('nb-NO')}</p>
-      <p><strong>Area in sqKm:</strong>{areaSqKm.toLocaleString('nb-NO')}</p>
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">{name}</h2>
+      <p className="text-xl font-bold text-center text-gray-800 mb-8"><strong>Population:</strong>{population.toLocaleString('nb-NO')}</p>
+      <p className="text-xl font-bold text-center text-gray-800 mb-8"><strong>Area in sqKm:</strong>{areaSqKm.toLocaleString('nb-NO')}</p>
     </div>
     </div>
   );

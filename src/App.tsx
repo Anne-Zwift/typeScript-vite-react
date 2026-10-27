@@ -9,6 +9,8 @@ import { DataCard } from './components/DataCard';
 import type { CarListing, JobListing } from './types/listings.ts';
 import { ListingStatusPill } from './components/ListingStatusPill.tsx';
 import { RandomGame } from './components/RandomGame.tsx';
+import { ProfileCard } from './components/ProfileCard.tsx';
+import { Button } from './components/ui/button.tsx';
 
 function App() {
   {
@@ -28,13 +30,48 @@ function App() {
     location: 'Oslo (Hybrid)',
     salary: '850 000 - 1 000 000 kr',
   };
+
+  // Mock data for user profiles
+  const users = [
+    {
+      avatarUrl:
+        'https://images.unsplash.com/photo-1783936093098-2daf9e8ef72e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+      name: 'Zoe',
+      bio: 'Outdoor enthusiasm, favorite game frisbee',
+      followers: 3,
+      isFollowing: false,
+    },
+    {
+      avatarUrl:
+        'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+      name: 'Anne-Zwift',
+      bio: 'Outdoor enthusiasm, favorite drink dark roasted coffee',
+      followers: 3,
+      isFollowing: false,
+    },
+  ];
   return (
     <>
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center gap-x-4 mt-10">
-  <div className="text-xl font-medium text-black">Tailwind v4 is working! 🎉 Some previous styling might not...</div>
-</div>
+      <div className='p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center gap-x-4 mt-10'>
+        <div className='text-xl font-medium text-black'>
+          Tailwind v4 is working! 🎉 Some previous styling might not...
+        </div>
+      </div>
 
       <Greeting name='Anne-Zwift' message='' />
+      <div className='flex space-x-4 p-8'>
+        {users.map((user) => (
+          <ProfileCard key={user.name} user={user} />
+        ))}
+      </div>
+      <div className='flex flex-col items-center justify-center gap-4'>
+        <h1 className='text-2xl font-bold'>Shadcn + Tailwind v4</h1>
+        <div className='flex gap-2'>
+          <Button variant='default'>Main Button</Button>
+          <Button variant='destructive'>Delete Button</Button>
+          <Button variant='outline'>Outline Button</Button>
+        </div>
+      </div>
       <div>
         <Section title='Explore Oslo'>
           <p>Visit the Opera by the fjord or maybe the Vigeland universe</p>

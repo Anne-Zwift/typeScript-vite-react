@@ -123,7 +123,8 @@ export function ContactForm() {
             type='email'
             value={email}
             onChange={handleTextChange(setEmail)}
-            style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+            className='max-w-sm rounded shadow-lg bg-amber-50 pl-20 pt-4 mt-2'
+
           />
         </div>
 
@@ -136,7 +137,8 @@ export function ContactForm() {
             value={message}
             onChange={handleTextAreaChange}
             rows={4}
-            style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+            className='max-w-sm rounded shadow-lg bg-amber-50 p-36 mt-2'
+
           />
         </div>
 
@@ -155,7 +157,7 @@ export function ContactForm() {
 
         <button
           type='submit'
-          style={{ padding: '10px 24px', cursor: 'pointer' }}>
+          className='font-semibold py-2 px-4 rounded shadow-md transition duration-150 ease-in-out'>
           Send
         </button>
       </form>
