@@ -11,6 +11,7 @@ import { ListingStatusPill } from './components/ListingStatusPill.tsx';
 import { RandomGame } from './components/RandomGame.tsx';
 import { ProfileCard } from './components/ProfileCard.tsx';
 import { Button } from './components/ui/button.tsx';
+import { PreferencesPanel } from './components/PreferencesPanel.tsx';
 
 function App() {
   {
@@ -56,6 +57,12 @@ function App() {
         <div className='text-xl font-medium text-black'>
           Tailwind v4 is working! 🎉 Some previous styling might not...
         </div>
+      </div>
+      {/*min-h-screen fills the entire height of the screen*/}
+      {/*grid and place-items-center center the component perfectly—both vertically and horizontally*/}
+      {/*bg-background automatically adjusts the background color for light or dark mode*/}
+      <div className='min-h-screen w-full grid place-items-center bg-background p-4'>
+        <PreferencesPanel />
       </div>
 
       <Greeting name='Anne-Zwift' message='' />
