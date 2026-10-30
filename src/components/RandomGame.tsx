@@ -41,16 +41,16 @@ export function RandomGame() {
         width: '0 auto',
       }}>
       <h3 style={{ color: 'blue', margin: '20px' }}>
-        {game.title} ({game.released})
+        <strong style={{fontSize: '40px'}}>{game.name}</strong>({game.released})
       </h3>
       <img
         src={game.image.url}
         alt={game.image.alt}
         style={{ width: '100%', borderRadius: '4px' }}
       />
-      <p>{game.description}</p>
+      <p style={{marginTop: '10px'}}>{game.description}</p>
       <p>
-        <strong>
+        <strong style={{marginTop: '20px'}}>
           <em>Genre: {game.genre}</em>
         </strong>
       </p>

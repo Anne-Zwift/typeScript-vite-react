@@ -33,6 +33,7 @@ export interface GameImage {
 }
 
 export interface OldGame {
+  [x: string]: ReactNode;
   id: number;
   title: string;
   description: string;

@@ -201,6 +201,8 @@ function App() {
           style={{
             gap: '8px',
             margin: '24px',
+            fontSize: '30px',
+            color: 'green',
           }}>
           Random Games
         </h2>
